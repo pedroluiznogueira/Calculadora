@@ -15,9 +15,9 @@ public class CalculadoraController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        double operandoA = 0;
-        double operandoB = 0;
-        int operador = 0;
+        double operandoA = Double.valueOf(req.getParameter("operandoA"));
+        double operandoB = Double.valueOf(req.getParameter("operandoB"));
+        int operador = Integer.valueOf(req.getParameter("operador"));
         double resultado = 0;
 
         // instanciar o calculadora service, para pegar informações do form
