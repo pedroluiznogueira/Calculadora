@@ -24,7 +24,7 @@ public class CalculadoraController extends HttpServlet {
 
         double resultado = 0;
 
-        // instanciar o calculadora service, para pegar informações do form
+        // instanciar o calculadora service, para pegar informações do form, aqui está a relação entre quem trata os dados (controller) e quem os processa (service)
         CalculadoraService calculadoraService =  new CalculadoraService();
         resultado = calculadoraService.calcular(operandoA, operandoB, operador);
 
