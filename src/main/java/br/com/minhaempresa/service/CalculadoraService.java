@@ -22,6 +22,10 @@ public class CalculadoraService {
                 break;
             }
             case DIVISAO: {
+                if (operandoB == 0) {
+                    // aqui eu estou disparando uma excessão perante determinada condição
+                    throw new IllegalArgumentException("operandoB nao pode valer 0");
+                }
                 resultado = dividir(operandoA, operandoB);
                 break;
             }
