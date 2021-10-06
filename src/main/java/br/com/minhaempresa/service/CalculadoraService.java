@@ -1,25 +1,27 @@
 package br.com.minhaempresa.service;
 
+import br.com.minhaempresa.domain.Operacao;
+
 public class CalculadoraService {
 
     // processando o dado vindo do Servlet
-    public double calcular(double operandoA, double operandoB, int operacao) {
+    public double calcular(double operandoA, double operandoB, Operacao operacao) {
         double resultado = 0;
 
         switch (operacao) {
-            case 0: {
+            case SOMA: {
                 resultado = somar(operandoA, operandoB);
                 break;
             }
-            case 1: {
+            case SUBTRACAO: {
                 resultado = subtrair(operandoA, operandoB);
                 break;
             }
-            case 2: {
+            case MULTIPLICACAO: {
                 resultado = multiplicar(operandoA, operandoB);
                 break;
             }
-            case 3: {
+            case DIVISAO: {
                 resultado = dividir(operandoA, operandoB);
                 break;
             }
