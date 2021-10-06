@@ -9,15 +9,19 @@ public class CalculadoraService {
         switch (operacao) {
             case 0: {
                 resultado = somar(operandoA, operandoB);
+                break;
             }
             case 1: {
                 resultado = subtrair(operandoA, operandoB);
+                break;
             }
             case 2: {
                 resultado = multiplicar(operandoA, operandoB);
+                break;
             }
             case 3: {
                 resultado = dividir(operandoA, operandoB);
+                break;
             }
             default: {}
         }

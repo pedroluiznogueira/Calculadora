@@ -20,13 +20,15 @@ public class CalculadoraController extends HttpServlet {
         double operandoB = Double.valueOf(req.getParameter("operandoB"));
         int operador = Integer.valueOf(req.getParameter("operador"));
 
-        resp.getWriter().println("testando");
+        resp.getWriter().println("funcionando");
 
         double resultado = 0;
 
         // instanciar o calculadora service, para pegar informações do form
         CalculadoraService calculadoraService =  new CalculadoraService();
         resultado = calculadoraService.calcular(operandoA, operandoB, operador);
+
+        resp.getWriter().println(resultado);
 
     }
 
