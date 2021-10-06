@@ -30,9 +30,10 @@ public class CalculadoraController extends HttpServlet {
 
     }
 
-    // testando o funcionamento do servlet
+    // testando o funcionamento do servlet ao chamar a url do servlet
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.getWriter().println("servlet no ar");
     }
+
 }
