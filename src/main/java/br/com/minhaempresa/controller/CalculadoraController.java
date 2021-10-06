@@ -1,5 +1,6 @@
 package br.com.minhaempresa.controller;
 
+import br.com.minhaempresa.domain.Operacao;
 import br.com.minhaempresa.service.CalculadoraService;
 
 import javax.servlet.ServletException;
@@ -26,7 +27,31 @@ public class CalculadoraController extends HttpServlet {
 
         // instanciar o calculadora service, para pegar informações do form, aqui está a relação entre quem trata os dados (controller) e quem os processa (service)
         CalculadoraService calculadoraService =  new CalculadoraService();
-        resultado = calculadoraService.calcular(operandoA, operandoB, operador);
+        // inicializando como null para o intelliJ não reclamar
+        Operacao operacao = null;
+
+        // fazendo como se fosse um casting, pois a operação chega como inteiro, então preciso para cada situação de inteiro, referenciar a operação relacionada do enum
+        switch (operador) {
+            case 0: {
+                operacao = Operacao.SOMA;
+                break;
+            }
+            case 1: {
+                operacao = Operacao.SUBTRACAO;
+                break;
+            }
+            case 2: {
+                operacao = Operacao.MULTIPLICACAO;
+                break;
+            }
+            case 3: {
+                operacao = Operacao.DIVISAO;
+                break;
+            }
+            default: {}
+        }
+
+        resultado = calculadoraService.calcular(operandoA, operandoB, operacao);
 
         resp.getWriter().println(resultado);
 
