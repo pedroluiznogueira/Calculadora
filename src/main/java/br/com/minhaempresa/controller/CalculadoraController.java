@@ -10,19 +10,29 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 // passando a uri do servlet
-@WebServlet(urlPatterns = "/CalculadoraServlet")
+@WebServlet(urlPatterns = "/calcular")
 public class CalculadoraController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        // acessando os parâmetros da requisição que vem como string então preciso de casting
         double operandoA = Double.valueOf(req.getParameter("operandoA"));
         double operandoB = Double.valueOf(req.getParameter("operandoB"));
         int operador = Integer.valueOf(req.getParameter("operador"));
+
+        resp.getWriter().println("testando");
+
         double resultado = 0;
 
         // instanciar o calculadora service, para pegar informações do form
         CalculadoraService calculadoraService =  new CalculadoraService();
         resultado = calculadoraService.calcular(operandoA, operandoB, operador);
 
+    }
+
+    // testando o funcionamento do servlet
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.getWriter().println("servlet no ar");
     }
 }
