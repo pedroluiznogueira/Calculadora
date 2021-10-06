@@ -16,6 +16,7 @@ public class CalculadoraController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
         // acessando os parâmetros da requisição que vem como string então preciso de casting
         double operandoA = Double.valueOf(req.getParameter("operandoA"));
         double operandoB = Double.valueOf(req.getParameter("operandoB"));
